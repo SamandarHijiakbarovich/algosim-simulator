@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALGOSIM v2.0 - Vizual Simulyator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ALGO<span>SIM</span> v2.0</h1>
+            <p>Algoritmlash va Dasturlash Asoslari Vizual Interaktiv Simulyatori</p>
+        </div>
+        <div class="author-badge">
+            Muallif: Mahmud Nizomov
+        </div>
+    </header>
+
+    <main class="app-grid">
+        <!-- 1. Algoritm Sozlamalari -->
+        <section class="card">
+            <h2>1. Algoritm Sozlamalari</h2>
+            
+            <label for="algoSelect">Algoritm turi:</label>
+            <select id="algoSelect">
+                <option value="sum_ab">1. Chiziqli: A + B Summa</option>
+                <option value="even_odd">2. Tarmoqlanuvchi: Juft yoki Toq</option>
+                <option value="max_two">3. Tarmoqlanuvchi: Kattasini topish (Max)</option>
+                <option value="loop_sum">4. Sikl: 1 dan N gacha yig'indi</option>
+                <option value="factorial">5. Sikl: Faktorial (N!)</option>
+                <option value="power">6. Sikl: Darajaga oshirish (A^B)</option>
+                <option value="is_prime">7. Sikl: Tub sonni tekshirish</option>
+                <option value="fibonacci">8. Sikl: Fibonachchi sonlari</option>
+                <option value="array_max">9. Massiv: Eng katta element (Max)</option>
+                <option value="array_sum">10. Massiv: Elementlar yig'indisi</option>
+            </select>
+
+            <!-- Dinamik input maydonlari -->
+            <div id="dynamicInputs" class="inputs-container">
+                <!-- A va B uchun input -->
+                <div class="input-group" id="groupAB">
+                    <label>A qiymati:</label>
+                    <input type="number" id="inputA" value="12">
+                    <label>B qiymati:</label>
+                    <input type="number" id="inputB" value="5">
+                </div>
+
+                <!-- Bitta N soni uchun input -->
+                <div class="input-group" id="groupN" style="display:none;">
+                    <label>N qiymati:</label>
+                    <input type="number" id="inputN" value="6" min="1" max="25">
+                </div>
+
+                <!-- Massiv uchun input -->
+                <div class="input-group" id="groupArray" style="display:none;">
+                    <label>Massiv elementlari (vergul bilan):</label>
+                    <input type="text" id="inputArray" value="15, 8, 42, 4, 23">
+                </div>
+            </div>
+
+            <label style="margin-top: 15px;">Dasturlash tili ko'rinishi:</label>
+            <div class="lang-selector">
+                <button class="lang-btn" data-lang="Pseudo">Pseudo</button>
+                <button class="lang-btn active" data-lang="CSharp">C#</button>
+                <button class="lang-btn" data-lang="Python">Python</button>
+                <button class="lang-btn" data-lang="Cpp">C++</button>
+            </div>
+
+            <div class="speed-control">
+                <label for="speedRange">Tezlik:</label>
+                <input type="range" id="speedRange" min="0.5" max="3" step="0.5" value="1">
+            </div>
+
+            <div class="actions">
+                <button class="btn primary" id="btnStart">► Boshlash</button>
+                <button class="btn success" id="btnAuto">⚡ Avto-ijro</button>
+                <button class="btn secondary" id="btnStep">Keyingi qadam ➔</button>
+                <button class="btn danger" id="btnReset">⟲ Qayta o'rnatish</button>
+            </div>
+        </section>
+
+        <!-- 2. Vizual Bajarilish -->
+        <section class="card">
+            <h2>2. Vizual Bajarilish</h2>
+            <div class="visual-split">
+                <div>
+                    <h3>Kod Qadamlari</h3>
+                    <div id="codeSteps" class="code-box"></div>
+                </div>
+                <div>
+                    <h3>Blok-sxema Diagrammasi</h3>
+                    <div id="flowchartNodes" class="nodes-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RAM Xotira va Console -->
+        <section class="card memory-card">
+            <h2>3. Operativ Xotira (RAM) & Console</h2>
+
+            <div class="ram-container" id="ramContainer"></div>
+
+            <div class="console-box">
+                <div class="console-header">Terminal / Output</div>
+                <div id="outputLog" class="console-body">Simulyatsiya kutilmoqda...</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
